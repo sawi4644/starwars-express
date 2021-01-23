@@ -43,7 +43,15 @@ res.json(characters)
 })
 
 // /api/characters/:routeName
+app.get("/api/characters/:routeName", (req,res) =>{
+    const targetCharacters= req.params.routeName
 
+    const character= characters.find(character => {
+        return  character.routeName === targetCharacters
+    })
+
+    res.json(character)
+})
 
 
 app.listen(PORT, () => {
